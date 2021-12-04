@@ -1,7 +1,5 @@
 package dev.gregbahr.problems
 
-import dev.gregbahr.helpers.Resources
-
 @ExperimentalStdlibApi
 class Day3(private val data: List<String>) {
 
@@ -52,13 +50,5 @@ class Day3(private val data: List<String>) {
         }
 
         return oxygen * co2
-    }
-}
-
-@ExperimentalStdlibApi
-fun main() {
-    Day3(Resources.resourceAsList("inputs/day3.txt")).apply {
-        println(part1())
-        println(part2())
     }
 }
