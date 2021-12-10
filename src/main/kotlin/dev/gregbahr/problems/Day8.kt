@@ -1,7 +1,5 @@
 package dev.gregbahr.problems
 
-import dev.gregbahr.helpers.Resources
-
 class Day8(private val data: List<String>) {
 
     fun part1(): Int {
@@ -76,12 +74,5 @@ class Day8(private val data: List<String>) {
             val decodedReversed = decoded.entries.associate { (key, value) -> value to key }
             output.map { decodedReversed[it] }.joinToString("").toInt()
         }.sum()
-    }
-}
-
-fun main() {
-    Day8(Resources.resourceAsList("inputs/day8.txt")).apply {
-        println(part1())
-        println(part2())
     }
 }
