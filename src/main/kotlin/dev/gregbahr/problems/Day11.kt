@@ -1,23 +1,23 @@
 package dev.gregbahr.problems
 
+data class Point(val x: Int, val y: Int) {
+    fun neighbors(): List<Point> {
+        return listOf(
+            Point(x, y+1),
+            Point(x, y-1),
+            Point(x+1, y),
+            Point(x-1, y),
+            Point(x+1, y+1),
+            Point(x-1, y-1),
+            Point(x-1, y+1),
+            Point(x+1, y-1)
+        )
+    }
+}
+
 class Day11(private val data: List<String>) {
 
     private val nums = data.map { it.chunked(1).map(String::toInt) }
-
-    private data class Point(val x: Int, val y: Int) {
-        fun neighbors(): List<Point> {
-            return listOf(
-                Point(x, y+1),
-                Point(x, y-1),
-                Point(x+1, y),
-                Point(x-1, y),
-                Point(x+1, y+1),
-                Point(x-1, y-1),
-                Point(x-1, y+1),
-                Point(x+1, y-1)
-            )
-        }
-    }
 
     private operator fun List<List<Int>>.contains(point: Point): Boolean {
         return point.y in this.indices && point.x in this[point.y].indices
