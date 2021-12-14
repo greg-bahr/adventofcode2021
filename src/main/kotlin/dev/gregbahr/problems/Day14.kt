@@ -4,7 +4,7 @@ class Day14(private val data: List<String>) {
 
     private val initialPairs = data.take(1)[0].windowed(2)
     private val rules = data.takeLastWhile { it.isNotEmpty() }.associateBy({it.split(" -> ")[0]}, {it.split(" -> ")[1]})
-    private val elements = rules.flatMap { it.key.toCharArray().map { c -> c.toString() }.toMutableSet() + it.value }.toSet()
+    private val elements = rules.flatMap { it.key.toList() }.toMutableSet().map(Char::toString) + rules.values
 
     fun part1(): Int {
         val pairs = initialPairs.associateWith { 1 }.toMutableMap()
