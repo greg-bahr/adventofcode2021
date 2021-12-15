@@ -1,17 +1,24 @@
 package dev.gregbahr.problems
 
 data class Point(val x: Int, val y: Int) {
-    fun neighbors(): List<Point> {
-        return listOf(
+    fun neighbors(diagonal: Boolean = true): List<Point> {
+        val list = mutableListOf(
             Point(x, y+1),
             Point(x, y-1),
             Point(x+1, y),
-            Point(x-1, y),
-            Point(x+1, y+1),
-            Point(x-1, y-1),
-            Point(x-1, y+1),
-            Point(x+1, y-1)
+            Point(x-1, y)
         )
+
+        if (diagonal) {
+            list.addAll(listOf(
+                Point(x+1, y+1),
+                Point(x-1, y-1),
+                Point(x-1, y+1),
+                Point(x+1, y-1)
+            ))
+        }
+
+        return list
     }
 }
 
