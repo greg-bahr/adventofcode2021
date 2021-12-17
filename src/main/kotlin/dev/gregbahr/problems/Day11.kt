@@ -20,6 +20,10 @@ data class Point(val x: Int, val y: Int) {
 
         return list
     }
+
+    operator fun plus(point: Point): Point {
+        return Point(x + point.x, y + point.y)
+    }
 }
 
 class Day11(private val data: List<String>) {
