@@ -21,6 +21,20 @@ data class Point(val x: Int, val y: Int) {
         return list
     }
 
+    fun squarePoints(): List<Point> {
+        return listOf(
+            Point(x-1, y-1),
+            Point(x, y-1),
+            Point(x+1, y-1),
+            Point(x-1, y),
+            this,
+            Point(x+1, y),
+            Point(x-1, y+1),
+            Point(x, y+1),
+            Point(x+1, y+1)
+        )
+    }
+
     operator fun plus(point: Point): Point {
         return Point(x + point.x, y + point.y)
     }
