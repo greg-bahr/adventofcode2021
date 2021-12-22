@@ -1,6 +1,5 @@
 package dev.gregbahr.problems
 
-import dev.gregbahr.helpers.Resources
 import kotlin.math.max
 import kotlin.math.min
 
@@ -56,12 +55,5 @@ class Day22(private val data: List<String>) {
     fun part2(): Long {
         val results = mutableListOf<Cuboid>()
         return steps.forEach { addCuboid(it, results) }.let { results.sumArea() }
-    }
-}
-
-fun main() {
-    Day22(Resources.resourceAsList("inputs/day22.txt")).apply {
-        println(part1())
-        println(part2())
     }
 }
